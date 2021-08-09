@@ -1,0 +1,21 @@
+### User sign up endpoint
+POST http://localhost:3001/v1/user
+Content-Type: application/json
+
+{
+    "name": "David Carter",
+    "company": "Big Company",
+    "address": "antohter random address with a post code",
+    "phone": "0212566402",
+    "email": "random2@test.co.nz",
+    "password": "test1234"
+}
+
+### User sign in endpoint
+POST http://localhost:3001/v1/user/login
+Content-Type: application/json
+
+{
+    "email": "random2@test.co.nz",
+    "password": "test12341222"
+}
