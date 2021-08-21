@@ -8,7 +8,7 @@ Content-Type: application/json
     "address": "antohter random address with a post code",
     "phone": "0212566402",
     "email": "random2@test.co.nz",
-    "password": "test1234"
+    "password": "test1234",
 }
 
 ### User sign in endpoint
@@ -17,5 +17,5 @@ Content-Type: application/json
 
 {
     "email": "random2@test.co.nz",
-    "password": "test12341222"
+    "password": "test1234"
 }
