@@ -16,6 +16,27 @@ const getUserByEmail = email => {
     try {
       UserSchema.findOne({ email }, (error, data) => {
         if (error) {
+          console.log(error);
+          reject(error);
+        }
+        resolve(data);
+      });
+
+    } catch (error) {
+      reject(error);
+    }
+    
+  });  
+};
+
+const getUserById = _id => {
+  return new Promise((resolve, reject) => {
+    if (!_id) return false;
+
+    try {
+      UserSchema.findOne({ _id }, (error, data) => {
+        if (error) {
+          console.log(error);
           reject(error);
         }
         resolve(data);
@@ -25,9 +46,7 @@ const getUserByEmail = email => {
       reject(error);
     }
 
-    
   });
-  
 };
 
 const storeUserRefreshJWT = (_id, token)=> {
@@ -36,9 +55,11 @@ const storeUserRefreshJWT = (_id, token)=> {
       UserSchema.findOneAndUpdate(
         {_id}, 
         { $set: {"refreshJWT.token": token,
-                "refreshJWT.addedAt": Date.now()}},
+                "refreshJWT.addedAt": Date.now()}
+        },
         {new: true}
-      ).then(data=> resolve(data))
+      )
+      .then(data=> resolve(data))
       .catch((error) => {
         console.log(error);
         reject(error);        
@@ -53,5 +74,6 @@ const storeUserRefreshJWT = (_id, token)=> {
 module.exports = {
   insertUser,
   getUserByEmail,
+  getUserById,
   storeUserRefreshJWT,
 };

@@ -3,12 +3,12 @@ POST http://localhost:3001/v1/user
 Content-Type: application/json
 
 {
-    "name": "David Carter",
-    "company": "Big Company",
+    "name": "Adam Carter",
+    "company": "West Company",
     "address": "antohter random address with a post code",
-    "phone": "0212566402",
-    "email": "random2@test.co.nz",
-    "password": "test1234",
+    "phone": "021154254",
+    "email": "adam.carter@test.co.nz",
+    "password": "secret1234"
 }
 
 ### User sign in endpoint
@@ -16,6 +16,10 @@ POST http://localhost:3001/v1/user/login
 Content-Type: application/json
 
 {
-    "email": "random2@test.co.nz",
-    "password": "test1234"
+    "email": "adam.carter@test.co.nz",
+    "password": "secret1234"
 }
+
+### User a user profile endpoint
+Get http://localhost:3001/v1/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2Mjk3NDY3NjYsImV4cCI6MTYyOTc0NzY2Nn0.QKw-g4SpDrJAAP-ZFM2w6wW9XJrGn58s2YGenoIV7Nk
