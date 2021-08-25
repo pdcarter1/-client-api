@@ -31,3 +31,19 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVy
 GET http://localhost:3001/v1/tokens
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2Mjk4NzA0MzUsImV4cCI6MTYzMjQ2MjQzNX0.lfWUE2I8_fVUaIAByC71vMwpAQ60ez5ubc5awPchhJw
 
+#### Password reset endpoints
+POST http://localhost:3001/v1/user/reset-password
+Content-Type: application/json
+
+{
+    "email": "adam.carter@test.co.nz"
+}
+
+#### Update new password endpoint
+PATCH http://localhost:3001/v1/user/reset-password
+Content-Type: application/json
+{
+    "email": "adam.carter@test.co.nz",
+    "pin": "12345678",
+    "newPassword": "password"
+}

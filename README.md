@@ -15,13 +15,13 @@ Note: Make sure you have nodemon is installed in your system otherwise you can i
 ### User API Resources
 All the user API router follows `/v1/user/`
 
-| #	| Routers        |	Verbs |	Progress |	Is Private |	Description  |
+| #	| Routers	| Verbs	| Progress	| Is Private	| Description |
 | --- | ------------- | ----- | --------- | -------- | ----------------------------------|
 | 1	| /v1/user	| GET	| TODO	| Yes	| Get user Info |
 | 2	| /v1/user	| POST	| TODO	| No	| Create a user |
-| 3	| /v1/user/login	| POST	| TODO	| No	| Verify user Authentication and return JWT |
-| 4	| /v1/user/reset-password	| TODO	| Done	| No	| Verify email and email pin to reset the password |
-| 5	| /v1/user/reset-password	| TODO	| Done	| No	| Replace with new password |
+| 3	| /v1/user/login	| POST	| POST	| No	| Verify user Authentication and return JWT |
+| 4	| /v1/user/reset-password	| POST	| Done	| No	| Verify email and email pin to reset the password |
+| 5	| /v1/user/reset-password	| PATCH	| Done	| No	| Replace with new password |
 | 6 | 	/v1/user/logout	| DELETE	| TODO	| Yes	| Delete user accessJWT |
 
 ---
@@ -41,6 +41,6 @@ All the user API router follows `/v1/ticket/`
 ## Tokens API Resources
 All the user API router follows `/v1/tokens`
 
-| # |	Routers	Verbs |	Progress |	Is Private |	Description |
-|----|----|----|---|----|
-|1|	/v1/tokens	GET|	TODO|	No|	Get a fresh access JWT|
+| #	| Routers	| Verbs	| Progress	| Is Private	| Description |
+| --- | ------------- | ----- | --------- | -------- | ----------------------------------|
+|1|	/v1/tokens |	GET| Done |	No|	Get a fresh access JWT|
