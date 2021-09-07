@@ -22,14 +22,14 @@ Content-Type: application/json
 
 ### User a user profile endpoint
 Get http://localhost:3001/v1/user
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2Mjk4NzA0MzUsImV4cCI6MTYyOTg3MTMzNX0.79w1i6ED_iiBVQ9hQqi4xcsAD2OAxMxuXSn6AwHGDuI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
 
 
 ### Token routers
 
 ### Get refreshed Token
 GET http://localhost:3001/v1/tokens
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2Mjk4NzA0MzUsImV4cCI6MTYzMjQ2MjQzNX0.lfWUE2I8_fVUaIAByC71vMwpAQ60ez5ubc5awPchhJw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMzYyOTY1OH0.O62052VhS5Vm9seXsuGZHLL_D3i8jvdWrUjgi7TYuOw
 
 #### Password reset request endpoints
 POST http://localhost:3001/v1/user/reset-password
@@ -48,3 +48,7 @@ Content-Type: application/json
     "pin": "659225",
     "newPassword": "secret1234"
 }
+
+#### user logout endpoint
+DELETE http://localhost:3001/v1/user/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
