@@ -5,6 +5,7 @@ const { insertUser, getUserByEmail, getUserById, updatePassword } = require("../
 const { hashPassword, comparePassword } = require('../helpers/bcrypt.helper');
 const { createAccessJWT, createRefreshJWT } = require("../helpers/jwt.helper");
 const { userAuthorization } = require("../middlewares/authorization.middleware");
+const { resetPassReqValidation, updatePasswordValidation } = require("../middlewares/formValidation.middleware");
 const { setPasswordResetPin, getPinByEmailPin, deletePin } = require("../model/resetPin/ResetPin.model");
 const { emailProcessor } = require("../helpers/email.helper");
 
@@ -81,10 +82,10 @@ router.post("/login", async (req, res) => {
     });
 });
 
-router.post('/reset-password', async (req, res) => {
+router.post('/reset-password', resetPassReqValidation, async (req, res) => {
     const {email} = req.body;
+
     const user = await getUserByEmail(email);
-    
 
     if(user && user._id) {
         const setPin = await setPasswordResetPin(email);
@@ -104,7 +105,7 @@ router.post('/reset-password', async (req, res) => {
 });
 
 // update password
-router.patch('/reset-password', async (req, res) => {
+router.patch('/reset-password', updatePasswordValidation, async (req, res) => {
     const { email, pin, newPassword } = req.body;
 
     const getPin = await getPinByEmailPin(email, pin);

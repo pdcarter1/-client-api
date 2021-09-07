@@ -45,6 +45,6 @@ Content-Type: application/json
 
 {
     "email": "adam.carter@test.co.nz",
-    "pin": "826097",
+    "pin": "659225",
     "newPassword": "secret1234"
 }
