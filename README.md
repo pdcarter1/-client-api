@@ -22,7 +22,7 @@ All the user API router follows `/v1/user/`
 | 3	| /v1/user/login	        | POST	    | Done	| No	| Verify user Authentication and return JWT         |
 | 4	| /v1/user/reset-password	| POST	    | Done	| No	| Verify email and email pin to reset the password  |
 | 5	| /v1/user/reset-password	| PATCH	    | Done	| No	| Replace with new password                         |
-| 6 | /v1/user/logout	        | DELETE	| TODO	| Yes	| Delete user accessJWT                             |
+| 6 | /v1/user/logout	        | DELETE	| Done	| Yes	| Delete user accessJWT                             |
 
 ---
 ## Ticket API Resources
@@ -42,5 +42,5 @@ All the user API router follows `/v1/ticket/`
 All the user API router follows `/v1/tokens`
 
 | #	| Routers	| Verbs	| Progress	| Is Private	| Description |
-| --- | ------------- | ----- | --------- | -------- | ----------------------------------|
-|1|	/v1/tokens |	GET| Done |	No|	Get a fresh access JWT|
+| ---- | -------------- | ----- | --------- | --------- | ----------------------------------|
+|1     | /v1/tokens     |	GET | Done      |	No      |	Get a fresh access JWT          |

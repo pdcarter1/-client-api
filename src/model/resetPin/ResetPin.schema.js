@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const ResetPinSchema = new Schema({
     
-    "pin": {
+    pin: {
         type: String,
         maxLength: 6,
         minLength: 6,
     },
-    "email": {
+    email: {
         type: String,
         maxLength: 50,
         required: true
