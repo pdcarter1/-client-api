@@ -1,7 +1,7 @@
 const express = require("express");
 const { updateLanguageServiceSourceFile } = require("typescript");
 const router = express.Router();
-const { insertTicket, getTickets } = require("../model/ticket/Ticket.model");
+const { insertTicket, getTickets, getTicketById } = require("../model/ticket/Ticket.model");
 const { userAuthorization } = require("../middlewares/authorization.middleware");
     
     // receive new ticket data
@@ -67,4 +67,23 @@ router.get("/", userAuthorization, async (req, res) => {
     }
 
 });
+
+//Get tickets by Id
+router.get("/:_id", userAuthorization, async (req, res) => {
+    
+    try {
+        const {_id} = req.params;
+
+        const clientId = req.userId;
+
+        const result = await getTicketById(_id, clientId);
+
+        return res.json({ status: 'success', result });
+
+    } catch (error) {
+        res.json({ status: 'error', message: error.message });
+    }
+
+});
+
 module.exports = router;
