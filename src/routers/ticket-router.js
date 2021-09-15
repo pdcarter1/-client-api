@@ -1,8 +1,8 @@
 const express = require("express");
 const { updateLanguageServiceSourceFile } = require("typescript");
 const router = express.Router();
-const { insertTicket } = require("../model/ticket/Ticket.model");
-
+const { insertTicket, getTickets } = require("../model/ticket/Ticket.model");
+const { userAuthorization } = require("../middlewares/authorization.middleware");
     
     // receive new ticket data
     // Autorize every request with jwt
@@ -19,12 +19,14 @@ router.all('/',  (req, res, next) => {
     next();
 });
 
-router.post("/", async (req, res) => {
+router.post("/", userAuthorization, async (req, res) => {
     try {
         const { subject, sender, message } = req.body;
 
+        const userid = req.userId;
+
         const ticktObj = {
-            clientId: "6122a0c57c57f220a0ba5545",
+            clientId: userid,
             subject,
             conversation: [
                 {
@@ -36,8 +38,10 @@ router.post("/", async (req, res) => {
 
         // insert in mongodb
         const result = await insertTicket(ticktObj);
-        if (result._id) {
-            res.json({ status: 'success', message: "New ticket has been created" });
+        
+
+        if (result._id) {            
+            return res.json({ status: 'success', message: "New ticket has been created" });
         }
 
         res.json({ status: 'error', message: "unable to create new ticket please try again later" });
@@ -48,4 +52,19 @@ router.post("/", async (req, res) => {
     
 });
 
+//Get all tickets for a specific user
+router.get("/", userAuthorization, async (req, res) => {
+    try {
+
+        const userId = req.userId;
+        
+        const result = await getTickets(userId);
+
+        return res.json({ status: 'success', result });        
+       
+    } catch (error) {
+        res.json({ status: 'error', message: error.message });
+    }
+
+});
 module.exports = router;

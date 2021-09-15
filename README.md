@@ -32,7 +32,7 @@ All the user API router follows `/v1/ticket/`
 | --- | ------------- | ----- | --------- | -------- | -----------------------------------------------------|
 | 1	    | /v1/ticket	                | GET	| TODO	| Yes	| Get all ticket for the logined in user    |
 | 2	    | /v1/ticket/{id}	            | GET	| TODO	| Yes	| Get a ticket details                      |
-| 3	    | /v1/ticket	                | POST	| TODO	| Yes	| Create a new ticket                       |
+| 3	    | /v1/ticket	                | POST	| Done	| Yes	| Create a new ticket                       |
 | 4	    | /v1/ticket/{id}	            | PUT	| TODO	| Yes	| Update ticket details ie. reply message   |
 | 5	    | /v1/ticket/close-ticket/{id}	| PATCH	| TODO	| Yes	| Update ticket status to close             |
 | 6	    | /v1/ticket/{id}	            | DELET	| TODO	| Yes	| Delete a ticket                           |
