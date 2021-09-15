@@ -3,24 +3,17 @@ const { updateLanguageServiceSourceFile } = require("typescript");
 const router = express.Router();
 const { insertTicket, getTickets, getTicketById, updateClientReply, updateStatusClose, deleteTicket } = require("../model/ticket/Ticket.model");
 const { userAuthorization } = require("../middlewares/authorization.middleware");
-    
-    // receive new ticket data
-    // Autorize every request with jwt
-    // insert in mongodb
-    // Retrieve all the ticket for the specific user
-    // Retrieve a ticket from mongodb
-    // Update message conversation in the ticket database
-    // update ticket status
-    // delete ticket from mongodb 
-    
+const { createNewTicketValidation, replyTicketMessageValidation } = require("../middlewares/formValidation.middleware");
+
 
 router.all('/',  (req, res, next) => {
     //res.json({ message: "return from ticket router" });
     next();
 });
 
-router.post("/", userAuthorization, async (req, res) => {
+router.post("/", createNewTicketValidation, userAuthorization, async (req, res) => {
     try {
+        console.log(req.body);
         const { subject, sender, message } = req.body;
 
         const userid = req.userId;
@@ -38,7 +31,6 @@ router.post("/", userAuthorization, async (req, res) => {
 
         // insert in mongodb
         const result = await insertTicket(ticktObj);
-        
 
         if (result._id) {            
             return res.json({ status: 'success', message: "New ticket has been created" });
@@ -87,7 +79,7 @@ router.get("/:_id", userAuthorization, async (req, res) => {
 });
 
 //Update reply message from client
-router.put("/:_id", userAuthorization, async (req, res) => {
+router.put("/:_id", replyTicketMessageValidation, userAuthorization, async (req, res) => {
     
     try {
         const {message, sender} = req.body;
