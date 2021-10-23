@@ -4,7 +4,7 @@ this api is part of create CRM Ticket system with MERN stack from scratch tutori
 
 ## How to use
 ---
-- run `git clone https://github.com/DentedCode/client-api.git`
+- run `git clone https://github.com/pdcarter1/-client-api.git`
 - run `npm install`
 - run `npm start`
 

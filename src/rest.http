@@ -52,3 +52,39 @@ Content-Type: application/json
 #### user logout endpoint
 DELETE http://localhost:3001/v1/user/logout
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
+
+#### Create new ticket
+POST http://localhost:3001/v1/ticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
+Content-Type: application/json
+{
+    "subject": "SSL Form Issue",
+    "sender": "Paul",
+    "message": "This contact form not working again . please fix it as soon as possible"
+}
+
+#### Get all tickets
+GET http://localhost:3001/v1/ticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
+
+#### Get a single ticket
+GET http://localhost:3001/v1/ticket/614e56576de84c31a03e2fc1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzQxNjc4MDUsImV4cCI6MTYzNDI1NDIwNX0.sEIQCL3AjpwB8bekPjK8WpHWoR0_OKQ3gbLCgylSYF0
+
+#### Reply message to the ticket
+PUT http://localhost:3001/v1/ticket/614266c9b3088057c499cd28
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
+Content-Type: application/json
+{
+    "sender": "Paul",
+    "message": "This has been fixed successfully"
+    
+}
+
+#### Close the ticket
+PATCH http://localhost:3001/v1/ticket/close-ticket/614266c9b3088057c499cd28
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
+
+#### Delete the ticket
+DELETE http://localhost:3001/v1/ticket/6137c8a8f0adb310fc369b59
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkYW0uY2FydGVyQHRlc3QuY28ubnoiLCJpYXQiOjE2MzEwMzc2NTgsImV4cCI6MTYzMTAzODU1OH0.wYGPEi46NwLOHkCO8nmQNvtqwbUSD-obH2GO3vfrpY8
