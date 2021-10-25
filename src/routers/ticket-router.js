@@ -13,7 +13,7 @@ router.all('/',  (req, res, next) => {
 
 router.post("/", createNewTicketValidation, userAuthorization, async (req, res) => {
     try {
-        console.log(req.body);
+        
         const { subject, sender, message } = req.body;
 
         const userid = req.userId;
@@ -28,6 +28,7 @@ router.post("/", createNewTicketValidation, userAuthorization, async (req, res) 
                 }
             ]
         };
+        console.log(req);
 
         // insert in mongodb
         const result = await insertTicket(ticktObj);
